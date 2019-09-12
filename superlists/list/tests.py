@@ -21,6 +21,7 @@ class HomePageTest(TestCase):
 		self.assertIn('<title>To-Do lists</title>', html)
 		self.assertTrue(html.endswith('</html>'))
 
+
 # class SmokeTest(TestCase):
 # 	'''тест на токсичность'''
 # 	def test_bad_maths(self):
