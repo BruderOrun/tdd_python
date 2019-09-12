@@ -1,0 +1,7 @@
+db.sqllite3
+geckodriver.log
+venv/
+__pycache__
+*.pyc
+.DS_Store
+.idea/
