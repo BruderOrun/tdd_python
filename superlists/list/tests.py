@@ -1,5 +1,7 @@
 from django.urls import resolve
 from django.test import TestCase
+from django.http import HttpRequest
+
 from list.views import home_page
 
 class HomePageTest(TestCase): 
@@ -9,6 +11,15 @@ class HomePageTest(TestCase):
 		found = resolve('/')
 		self.assertEqual(found.func, home_page)
 
+
+	def test_homepage_returns_correct_html(self):
+		''' тест: домашняя страницап возвращает правильный html'''
+		request = HttpRequest()
+		response = home_page(request)
+		html = response.content.decode('utf8')
+		self.assertTrue(html.startswith('<html>'))
+		self.assertIn('<title>To-Do lists</title>', html)
+		self.assertTrue(html.endswith('</html>'))
 
 # class SmokeTest(TestCase):
 # 	'''тест на токсичность'''
